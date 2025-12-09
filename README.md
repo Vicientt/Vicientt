@@ -30,7 +30,7 @@ Outside of coding, I love exploring new places in the U.S., improving my workflo
 
 ## 🧠 LeetCode Progress
 
-![LeetCode Stats](https://leetcard.jacoblin.cool/Vicientt?theme=dark&font=source_code_pro&ext=heatmap)
+![Difficulty](https://raw.githubusercontent.com/Vicientt/Vicientt/main/difficulty_badges.svg)
 
 ---
 
