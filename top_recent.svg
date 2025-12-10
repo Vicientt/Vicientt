@@ -1,0 +1,71 @@
+<svg width="520" height="220" viewBox="0 0 520 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Background -->
+  <rect width="520" height="220" rx="20"
+        fill="url(#bg)"
+        stroke="#2d333b" stroke-width="1.4"
+        style="filter: drop-shadow(0px 6px 16px rgba(0,0,0,0.55));" />
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="520" y2="220">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+  </defs>
+
+  <!-- LeetCode Icon 24x24 -->
+  <!-- LeetCode Logo (Base64 SVG supplied by you) -->
+  <image
+      href="data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI0IzQjFCMCIgZD0iTTIyIDE0LjM1NWMwLS43NDItLjU2NC0xLjM0Ni0xLjI2LTEuMzQ2SDEwLjY3NmMtLjY5NiAwLTEuMjYuNjA0LTEuMjYgMS4zNDZzLjU2MyAxLjM0NiAxLjI2IDEuMzQ2SDIwLjc0Yy42OTYuMDAxIDEuMjYtLjYwMyAxLjI2LTEuMzQ2eiIvPjxwYXRoIGZpbGw9IiNFN0E0MUYiIGQ9Im0zLjQ4MiAxOC4xODcgNC4zMTMgNC4zNjFjLjk3My45NzkgMi4zMTggMS40NTIgMy44MDMgMS40NTIgMS40ODUgMCAyLjgzLS41MTIgMy44MDUtMS40OTRsMi41ODgtMi42MzdjLjUxLS41MTQuNDkyLTEuMzY1LS4wMzktMS45LS41MzEtLjUzNS0xLjM3NS0uNTUzLTEuODg0LS4wMzlsLTIuNjc2IDIuNjA3Yy0uNDYyLjQ2Ny0xLjEwMi42NjItMS44MDkuNjYycy0xLjM0Ni0uMTk1LTEuODEtLjY2MmwtNC4yOTgtNC4zNjNjLS40NjMtLjQ2Ny0uNjk2LTEuMTUtLjY5Ni0xLjg2MyAwLS43MTMuMjMzLTEuMzU3LjY5Ni0xLjgyNGw0LjI4NS00LjM4Yy40NjMtLjQ2NyAxLjExNi0uNjQ1IDEuODIyLS42NDVzMS4zNDYuMTk1IDEuODA5LjY2MmwyLjY3NiAyLjYwNmMuNTEuNTE1IDEuMzU0LjQ5NyAxLjg4NS0uMDM4LjUzMS0uNTM2LjU0OS0xLjM4Ny4wMzktMS45MDFsLTIuNTg4LTIuNjM2YTQuOTk0IDQuOTk0IDAgMCAwLTIuMzkyLTEuMzNsLS4wMzQtLjAwNyAyLjQ0Ny0yLjUwM2MuNTEyLS41MTQuNDk0LTEuMzY2LS4wMzctMS45MDEtLjUzMS0uNTM1LTEuMzc2LS41NTItMS44ODctLjAzOGwtMTAuMDE4IDEwLjFDMi41MDkgMTEuNDU4IDIgMTIuODEzIDIgMTQuMzExYzAgMS40OTguNTA5IDIuODk2IDEuNDgyIDMuODc2eiIvPjxwYXRoIGZpbGw9IiMwNzA3MDYiIGQ9Ik04LjExNSAyMi44MTRhMi4xMDkgMi4xMDkgMCAwIDEtLjQ3NC0uMzYxYy0xLjMyNy0xLjMzMy0yLjY2LTIuNjYtMy45ODQtMy45OTctMS45ODktMi4wMDgtMi4zMDItNC45MzctLjc4Ni03LjMyYTYgNiAwIDAgMSAuODM5LTEuMDA0TDEzLjMzMy40ODljLjYyNS0uNjI2IDEuNDk4LS42NTIgMi4wNzktLjA2Ny41Ni41NjMuNTI3IDEuNDU1LS4wNzggMi4wNjYtLjc2OS43NzYtMS41MzkgMS41NS0yLjMwOSAyLjMyNS0uMDQxLjEyMi0uMTQuMi0uMjI1LjI4Ny0uODYzLjg3Ni0xLjc1IDEuNzI5LTIuNjAxIDIuNjE4LS4xMTEuMTE2LS4yNjIuMTg2LS4zNzIuMzA1LTEuNDIzIDEuNDIzLTIuODYzIDIuODMtNC4yNjYgNC4yNzItMS4xMzUgMS4xNjctMS4wOTcgMi45MzguMDY4IDQuMTI3IDEuMzA4IDEuMzM2IDIuNjM5IDIuNjUgMy45NjEgMy45NzQuMDY3LjA2Ny4xMzYuMTMyLjIwNC4xOTguNDY4LjMwMy40NzQgMS4yNS4xODMgMS42NzEtLjMyMS40NjUtLjc0Ljc1LTEuMzMzLjcyOC0uMTk5LS4wMDYtLjM2My0uMDg2LS41MjktLjE3OXoiLz48L3N2Zz4="
+      x="25"
+      y="10"
+      width="34"
+      height="34"
+      preserveAspectRatio="xMidYMid meet"
+  />
+
+  <!-- Short Title -->
+  <text x="75" y="38"
+        font-size="24"
+        font-weight="700"
+        fill="#f8f8f8"
+        font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
+    Recent Problems
+  </text>
+
+  <!-- Problem List -->
+  
+    <text x="30" y="90"
+          font-size="17"
+          font-weight="600"
+          fill="#3fb950"
+          font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
+      586. Customer Placing the Largest Number of Orders
+    </text>
+  
+    <text x="30" y="126"
+          font-size="17"
+          font-weight="600"
+          fill="#d29922"
+          font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
+      578. Get Highest Answer Rate Question
+    </text>
+  
+    <text x="30" y="162"
+          font-size="17"
+          font-weight="600"
+          fill="#d29922"
+          font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
+      580. Count Student Number in Departments
+    </text>
+  
+
+  <!-- Footer -->
+  <text x="500" y="205" text-anchor="end"
+        font-size="12"
+        fill="#8b949e"
+        font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
+    Updated 2025-12-10 08:04 UTC
+  </text>
+
+</svg>
