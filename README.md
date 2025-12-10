@@ -30,7 +30,18 @@ Outside of coding, I love exploring new places in the U.S., improving my workflo
 
 ## 🧠 LeetCode Progress
 
-![SQL Progress](./sql_progress.svg)
+<div style="
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+">
+
+  <img src="./sql_progress.svg" style="width: 48%; min-width: 300px;" />
+  <img src="./top_recent.svg" style="width: 48%; min-width: 300px;" />
+
+</div>
 
 ---
 
