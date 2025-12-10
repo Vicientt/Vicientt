@@ -30,7 +30,7 @@ Outside of coding, I love exploring new places in the U.S., improving my workflo
 
 ## 🧠 LeetCode Progress
 
-![SQL Progress](https://raw.githubusercontent.com/Vicientt/Vicientt/main/sql_progress.svg)
+![SQL Progress](./sql_progress.svg)
 
 ---
 
