@@ -4,9 +4,8 @@
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Lilex&size=18&duration=1000&color=F7F7F7&multiline=true&repeat=false&width=435&lines=Hi%2C+it's+Hoan!;Welcome+to+my+GitHub!)](https://git.io/typing-svg)
 
-## ✨ About Me
+## ✨ About Me <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0f0c29,302b63,24243e&height=100&section=header&animation=fadeIn" width="100%">
 
 I'm a Mathematics & Statistics student with a strong interest in Data Science, Machine Learning, and Analytics. Most of my projects focus on cleaning datasets, building machine learning models, and developing end-to-end data workflows. I enjoy learning by doing small, real-world projects—whether it's credit risk modeling, A/B testing, uplift modeling, or building pipelines with Python and DuckDB.
 
