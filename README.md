@@ -5,11 +5,11 @@
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Lilex&size=30&duration=1000&color=F7F7F7&multiline=true&repeat=false&width=435&height=75&lines=Hi%2C+it's+Hoan!;Welcome+to+my+GitHub!)](https://git.io/typing-svg)
 
 ## ✨ About Me <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-> *"I bridge the gap between statistical theory and real-world application, building robust ML pipelines and cleaning messy data to solve actual problems."*
+> ***"I bridge the gap between statistical theory and real-world application, building robust ML pipelines and cleaning messy data to solve actual problems."***
 
 
 ## 🚀 Tools and Languages I use <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-<img src="https://skillicons.dev/icons?i=github,visualstudio,tableau,python,cpp,r,js,sklearn,duckdb" /> 
+<img src="https://skillicons.dev/icons?i=github,visualstudio,python,cpp,r,sklearn,duckdb,js" />
 
 
 
