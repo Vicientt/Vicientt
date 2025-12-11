@@ -53,7 +53,7 @@
         font-weight="700"
         fill="#ffffff"
         font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-    23
+    31
   </text>
 
   <!-- Right Stats Section -->
@@ -62,7 +62,7 @@
 
     <!-- Easy -->
     <text x="180" y="80" fill="#e6edf3">Easy</text>
-    <text x="450" y="80" fill="#3fb950">12</text>
+    <text x="450" y="80" fill="#3fb950">15</text>
 
     <rect x="180" y="90" width="250" height="9" rx="4.5" fill="#30363d"/>
     <rect x="180" y="90"
@@ -72,7 +72,7 @@
 
     <!-- Medium -->
     <text x="180" y="120" fill="#e6edf3">Medium</text>
-    <text x="450" y="120" fill="#d29922">11</text>
+    <text x="450" y="120" fill="#d29922">14</text>
 
     <rect x="180" y="130" width="250" height="9" rx="4.5" fill="#30363d"/>
     <rect x="180" y="130"
@@ -82,11 +82,11 @@
 
     <!-- Hard -->
     <text x="180" y="160" fill="#e6edf3">Hard</text>
-    <text x="450" y="160" fill="#f85149">0</text>
+    <text x="450" y="160" fill="#f85149">2</text>
 
     <rect x="180" y="170" width="250" height="9" rx="4.5" fill="#30363d"/>
     <rect x="180" y="170"
-          width="4"
+          width="250.0"
           height="9" rx="4.5" fill="#f85149"
           filter="url(#glowRed)"/>
   </g>
@@ -96,7 +96,7 @@
         font-size="12"
         fill="#8b949e"
         font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-    Updated 2025-12-11 01:25 UTC
+    Updated 2025-12-11 05:23 UTC
   </text>
 
 </svg>
