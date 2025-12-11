@@ -1,7 +1,5 @@
 <div align="center">
-  <video width="100%" autoplay loop muted playsinline style="border-radius: 16px;">
-    <source src="https://raw.githubusercontent.com/Vicientt/Vicientt/main/animation.mp4" type="video/mp4">
-  </video>
+  <img src="https://raw.githubusercontent.com/Vicientt/Vicientt/main/animation.gif" width="100%" style="border-radius: 16px;" alt="animation" />
 </div>
 
 <h1 align="center">👋 Hi, I'm Hoan (Vicientt)</h1>
