@@ -2,11 +2,8 @@
   <img src="https://raw.githubusercontent.com/Vicientt/Vicientt/main/animation.gif" width="100%" style="border-radius: 16px;" alt="animation" />
 </div>
 
-<h1 align="center">👋 Hi, I'm Hoan (Vicientt)</h1>
-
-<p align="center">
-  Mathematics & Statistics student | Aspiring Data Scientist | US-based Vietnamese student  
-</p>
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=5DCAF7&width=435&lines=Hi%2C+it's+Hoan)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=5DCAF7&width=435&lines=Welcome+to+my+GitHub!)](https://git.io/typing-svg)
 
 ---
 
