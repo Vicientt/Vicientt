@@ -2,33 +2,18 @@
   <img src="https://raw.githubusercontent.com/Vicientt/Vicientt/main/animation.gif" width="100%" style="border-radius: 16px;" alt="animation" />
 </div>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Lilex&size=24&duration=1000&color=F7F7F7&multiline=true&repeat=false&width=435&height=65&lines=Hi%2C+it's+Hoan!;Welcome+to+my+GitHub!)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Lilex&size=30&duration=1000&color=F7F7F7&multiline=true&repeat=false&width=435&height=75&lines=Hi%2C+it's+Hoan!;Welcome+to+my+GitHub!)](https://git.io/typing-svg)
 
 ## ✨ About Me <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+> *"I bridge the gap between statistical theory and real-world application, building robust ML pipelines and cleaning messy data to solve actual problems."*
 
 
-I'm a Mathematics & Statistics student with a strong interest in Data Science, Machine Learning, and Analytics. Most of my projects focus on cleaning datasets, building machine learning models, and developing end-to-end data workflows. I enjoy learning by doing small, real-world projects—whether it's credit risk modeling, A/B testing, uplift modeling, or building pipelines with Python and DuckDB.
+## 🚀 Tools and Languages I use <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+<img src="https://skillicons.dev/icons?i=github,visualstudio,python,cpp,r,sklearn,duckdb,js" /> 
 
-Outside of coding, I love exploring new places in the U.S., improving my workflow with better tools, and sharing small learning projects on GitHub.
 
----
 
-## 🚀 What I'm Learning Right Now <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-- Python, Pandas, SQL, DuckDB  
-- Machine Learning (classification, regression, uplift models)  
-- Cloud tools (Microsoft Fabric, AWS basics)  
-- Real-world project building & portfolio development  
-
----
-
-## 📊 GitHub Stats <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Vicientt&show_icons=true&theme=tokyonight)
-
----
-
-## 🧠 LeetCode Progress <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
+## 🧠 Stats <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 <div style="
   display: flex;
   justify-content: space-between;
@@ -42,13 +27,11 @@ Outside of coding, I love exploring new places in the U.S., improving my workflo
 
 </div>
 
----
 
 ## 🔗 Connect with Me <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nguyenhoan164/)
-[![Gmail](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:nguyenhoan164@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hoanng15/)
+[![Gmail](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:hoanng15.work@gmail.com)
 
----
 
 ✨ *Thanks for visiting my profile! Always learning, always building.*  
