@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/Vicientt/Vicientt/main/animation.gif" width="100%" style="border-radius: 16px;" alt="animation" />
 </div>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Lilex&size=18&pause=1000&color=F7F7F7&width=435&lines=Hi%2C+it's+Hoan!;Welcome+to+my+GitHub!)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Lilex&size=18&duration=1000&color=F7F7F7&multiline=true&repeat=false&width=435&lines=Hi%2C+it's+Hoan!;Welcome+to+my+GitHub!)](https://git.io/typing-svg)
 
 ---
 
