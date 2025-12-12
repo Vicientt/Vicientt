@@ -38,25 +38,25 @@
     <text x="30" y="90"
           font-size="17"
           font-weight="600"
-          fill="#d29922"
+          fill="#f85149"
           font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-      608. Tree Node
+      262. Trips and Users
     </text>
   
     <text x="30" y="126"
           font-size="17"
           font-weight="600"
-          fill="#f85149"
+          fill="#d29922"
           font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-      185. Department Top Three Salaries
+      612. Shortest Distance in a Plane
     </text>
   
     <text x="30" y="162"
           font-size="17"
           font-weight="600"
-          fill="#f85149"
+          fill="#d29922"
           font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-      262. Trips and Users
+      614. Second Degree Follower
     </text>
   
 
@@ -65,7 +65,7 @@
         font-size="12"
         fill="#8b949e"
         font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-    Updated 2025-12-11 12:41 UTC
+    Updated 2025-12-12 01:24 UTC
   </text>
 
 </svg>
