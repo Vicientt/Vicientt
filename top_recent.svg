@@ -40,7 +40,7 @@
           font-weight="600"
           fill="#d29922"
           font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-      1045. Customers Who Bought All Products
+      1164. Product Price at a Given Date
     </text>
   
     <text x="30" y="126"
@@ -48,7 +48,7 @@
           font-weight="600"
           fill="#d29922"
           font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-      1070. Product Sales Analysis III
+      1174. Immediate Food Delivery II
     </text>
   
     <text x="30" y="162"
@@ -56,7 +56,7 @@
           font-weight="600"
           fill="#d29922"
           font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-      1077. Project Employees III
+      1193. Monthly Transactions I
     </text>
   
 
@@ -65,7 +65,7 @@
         font-size="12"
         fill="#8b949e"
         font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-    Updated 2025-12-13 01:20 UTC
+    Updated 2025-12-13 12:34 UTC
   </text>
 
 </svg>
