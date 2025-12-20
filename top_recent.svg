@@ -40,7 +40,7 @@
           font-weight="600"
           fill="#d29922"
           font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-      2041. Accepted Candidates From the Interviews
+      2175. The Change in Global Rankings
     </text>
   
     <text x="30" y="126"
@@ -48,7 +48,7 @@
           font-weight="600"
           fill="#d29922"
           font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-      2051. The Category of Each Member in the Store
+      2228. Users With Two Purchases Within Seven Days
     </text>
   
     <text x="30" y="162"
@@ -56,7 +56,7 @@
           font-weight="600"
           fill="#d29922"
           font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-      2066. Account Balance
+      2238. Number of Times a Driver Was a Passenger
     </text>
   
 
@@ -65,7 +65,7 @@
         font-size="12"
         fill="#8b949e"
         font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-    Updated 2025-12-20 01:20 UTC
+    Updated 2025-12-20 12:34 UTC
   </text>
 
 </svg>
