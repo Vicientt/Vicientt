@@ -40,7 +40,7 @@
           font-weight="600"
           fill="#d29922"
           font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-      2175. The Change in Global Rankings
+      2346. Compute the rank as a Percentage
     </text>
   
     <text x="30" y="126"
@@ -48,7 +48,7 @@
           font-weight="600"
           fill="#d29922"
           font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-      2228. Users With Two Purchases Within Seven Days
+      2372. Calculate the Influence of Ech Salesperson
     </text>
   
     <text x="30" y="162"
@@ -56,7 +56,7 @@
           font-weight="600"
           fill="#d29922"
           font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-      2238. Number of Times a Driver Was a Passenger
+      2388. Change Null Values in a Table to the Previous Value
     </text>
   
 
@@ -65,7 +65,7 @@
         font-size="12"
         fill="#8b949e"
         font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-    Updated 2025-12-22 12:38 UTC
+    Updated 2025-12-23 01:25 UTC
   </text>
 
 </svg>
