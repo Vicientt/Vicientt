@@ -40,7 +40,7 @@
           font-weight="600"
           fill="#d29922"
           font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-      2893. Calculate Orders Within Each Interval
+      3087. Find Trending Hashtags
     </text>
   
     <text x="30" y="126"
@@ -48,15 +48,15 @@
           font-weight="600"
           fill="#d29922"
           font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-      2922. Market Analysis III
+      3089. Find Bursty Behavior
     </text>
   
     <text x="30" y="162"
           font-size="17"
           font-weight="600"
-          fill="#f85149"
+          fill="#d29922"
           font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-      2978. Symmetric Coordinates
+      3118. Friday Purchase III
     </text>
   
 
@@ -65,7 +65,7 @@
         font-size="12"
         fill="#8b949e"
         font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-    Updated 2025-12-30 12:39 UTC
+    Updated 2025-12-31 01:26 UTC
   </text>
 
 </svg>
