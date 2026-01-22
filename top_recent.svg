@@ -40,23 +40,23 @@
           font-weight="600"
           fill="#3fb950"
           font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-      1495. Friendly Movies Streamed Last Month
+      1517. Find Users With Valid E-Mails
     </text>
   
     <text x="30" y="126"
           font-size="17"
           font-weight="600"
-          fill="#3fb950"
+          fill="#f85149"
           font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-      1511. Customer Order Frequency
+      569. Median Employee Salary
     </text>
   
     <text x="30" y="162"
           font-size="17"
           font-weight="600"
-          fill="#3fb950"
+          fill="#f85149"
           font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-      1517. Find Users With Valid E-Mails
+      571. Find Median Given Frequency of Numbers
     </text>
   
 
@@ -65,7 +65,7 @@
         font-size="12"
         fill="#8b949e"
         font-family="Inter, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
-    Updated 2026-01-21 12:44 UTC
+    Updated 2026-01-22 01:39 UTC
   </text>
 
 </svg>
