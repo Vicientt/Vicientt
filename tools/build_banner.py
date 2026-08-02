@@ -7,8 +7,8 @@ Composition follows three rules, in this order of priority:
      lattice, so nothing floats free. Blocks shade top > left > right, which is
      what sells the third dimension. The floor is a ribbon (constant depth band
      gx+gy) so it reads as a level horizon spanning the full width.
-  2. One leading line. A minecart rail runs along that ribbon from the wizard's
-     bench to the chest, carrying a data crate, so the eye is walked
+  2. One leading line. A rail runs along that ribbon from the wizard's bench to
+     the chest; the cast sends cards of code down it, so the eye is walked
      left-to-right instead of hopping between islands.
   3. One focal point, off-centre. The diamond sits on the upper-right rule-of-
      thirds intersection (0.70W, 0.30H) and is tied to the ground by a light
@@ -93,7 +93,7 @@ def sprite(grid, x, y, px, cols):
 # ================================================================= document
 add(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
     f'role="img" aria-label="Isometric pixel scene: a wizard codes at a lit bench on the left, '
-    f'a minecart carries a glowing data crate along a rail across the middle, and on the right an '
+    f'raises a wand to conjure cards of code that fly along a rail across the middle, and on the right an '
     f'open chest sends a shaft of light up to a floating diamond">')
 
 add("""<defs>
@@ -124,19 +124,66 @@ add("""<defs>
     <stop offset="0%" stop-color="#02060e" stop-opacity="0"/>
     <stop offset="100%" stop-color="#02060e" stop-opacity=".85"/></linearGradient>
   <style>
-    .bob   { animation: bob 3.4s ease-in-out infinite; }
-    .flick { animation: flick 1.4s steps(3) infinite; }
-    .pulse { animation: pulse 3.2s ease-in-out infinite; }
-    .spark { animation: spark 3s ease-in-out infinite; }
-    .cart  { animation: ride 11s ease-in-out infinite; }
-    .scan  { animation: scan 2.4s linear infinite; }
-    @keyframes bob   { 0%,100%{transform:translateY(0)}    50%{transform:translateY(-8px)} }
-    @keyframes flick { 0%,100%{opacity:.82}                50%{opacity:1} }
-    @keyframes pulse { 0%,100%{opacity:.5}                 50%{opacity:1} }
-    @keyframes spark { 0%,100%{opacity:0}                  50%{opacity:1} }
-    @keyframes scan  { 0%{transform:translateY(-16px)}     100%{transform:translateY(16px)} }
-    @keyframes ride  { 0%,4%{transform:translate(0,0)}     46%,54%{transform:translate(418px,0)}
-                       96%,100%{transform:translate(0,0)} }
+    /* One 10s spell, read left to right:
+       0.0-0.8s  afterglow from the last cast, chest still open
+       0.8-1.3s  lid drops shut, the scene resets
+       1.4-2.8s  wizard raises the wand, the focus stone flares
+       2.6-6.3s  cards of code fly the rail into the chest (staggered)
+       6.0-6.6s  lid bursts open, loot and beam come up to full
+       6.6-10s   held open, then the loop repeats                        */
+    .bob    { animation: bob 3.4s ease-in-out infinite; }
+    .flick  { animation: flick 1.4s steps(3) infinite; }
+    .pulse  { animation: pulse 3.2s ease-in-out infinite; }
+    .spark  { animation: spark 3s ease-in-out infinite; }
+    .scan   { animation: scan 2.4s linear infinite; }
+
+    .wand   { animation: wand 10s ease-in-out infinite; }
+    .runes  { animation: runes 10s ease-in-out infinite; }
+    /* backwards fill matters: during animation-delay an element falls back to
+       its own style, so a staggered packet would sit visible at the wand tip
+       until its turn came round. */
+    .pkt    { transform-origin: 0 0;
+              animation: pkt 10s cubic-bezier(.35,0,.5,1) infinite backwards; }
+    .lid    { transform-origin: -38px 0;
+              animation: lid 10s cubic-bezier(.34,1.4,.5,1) infinite; }
+    .payoff { animation: payoff 10s ease-in-out infinite; }
+
+    @keyframes bob   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    @keyframes flick { 0%,100%{opacity:.82}             50%{opacity:1} }
+    @keyframes pulse { 0%,100%{opacity:.5}              50%{opacity:1} }
+    @keyframes spark { 0%,100%{opacity:0}               50%{opacity:1} }
+    @keyframes scan  { 0%{transform:translateY(-16px)}  100%{transform:translateY(16px)} }
+
+    /* the gesture */
+    @keyframes wand {
+      0%, 14%   { transform: rotate(0deg); }
+      20%, 28%  { transform: rotate(24deg); }
+      36%, 100% { transform: rotate(0deg); }
+    }
+    @keyframes runes {
+      0%, 15%   { opacity: .45; }
+      20%, 30%  { opacity: 1; }
+      38%, 100% { opacity: .45; }
+    }
+    /* the code, arcing along the rail */
+    @keyframes pkt {
+      0%, 22%   { opacity: 0; transform: translate(0,0) scale(.45); }
+      26%       { opacity: 1; transform: translate(0,0) scale(1); }
+      40%       { opacity: 1; transform: translate(285px,-14px) scale(.95); }
+      54%       { opacity: 1; transform: translate(550px,28px) scale(.8); }
+      59%, 100% { opacity: 0; transform: translate(550px,28px) scale(.35); }
+    }
+    /* the payoff — starts open so the still frame shows the reward */
+    @keyframes lid {
+      0%, 8%    { transform: rotate(-26deg); }
+      13%, 60%  { transform: rotate(0deg); }
+      66%, 100% { transform: rotate(-26deg); }
+    }
+    @keyframes payoff {
+      0%, 8%    { opacity: 1; }
+      14%, 60%  { opacity: .25; }
+      66%, 100% { opacity: 1; }
+    }
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
   </style>
 </defs>""")
@@ -234,8 +281,6 @@ if rail_pts:
             f'stroke="{PAL["ink_lo"]}" stroke-width="2.5" opacity=".6"/>')
 add("</g>")
 
-RAIL_Y = rail_pts[0][1] + U / 2 if rail_pts else OY
-
 # ============================================================ LEFT: the work
 WIZ_X = 250
 gx, gy = at(WIZ_X, RAIL_V - 1)
@@ -282,10 +327,13 @@ add('<g class="bob">')
 sprite(WIZ, WIZ_X - 8 * px, GY - 20 * px + 6, px, COLS)
 # hat brim + robe trim catch the torch light
 add(f'<rect x="{WIZ_X-8*px}" y="{GY-15*px+6}" width="{16*px}" height="{px}" fill="{PAL["robe_hi"]}"/>')
-# staff, angled toward the rail
+# The wand pivots at the hand, so the cast reads as a deliberate gesture
+# rather than the whole sprite tilting.
+add(f'<g class="wand" style="transform-origin:{WIZ_X+38.5}px {GY+2}px">')
 add(f'<rect x="{WIZ_X+36}" y="{GY-88}" width="5" height="90" fill="{PAL["plank_r"]}"/>')
-add(f'<g class="pulse"><rect x="{WIZ_X+30}" y="{GY-104}" width="17" height="17" fill="{PAL["cyan"]}"/>'
+add(f'<g class="runes"><rect x="{WIZ_X+30}" y="{GY-104}" width="17" height="17" fill="{PAL["cyan"]}"/>'
     f'<rect x="{WIZ_X+34}" y="{GY-100}" width="9" height="9" fill="{PAL["cyan_wh"]}"/></g>')
+add("</g>")
 add("</g>")
 
 # hanging sign — puts the name inside the world instead of on top of it
@@ -315,20 +363,22 @@ for tx in (410, 640):
         add(f'<rect class="pulse" x="{xo+dx}" y="{yo-BH+U/2+dy}" width="6" height="6" '
             f'fill="{PAL["cyan"]}" style="animation-delay:{tx%4*.5:.1f}s"/>')
 
-# the minecart — the moving link between work and payoff
-add('<g class="cart">')
-cx = 392
-add(f'<g transform="translate({cx},{RAIL_Y-6})">')
-shadow(0, 16, 30, .42)
-add(f'<path d="M0,-4 l32,16 l0,14 l-32,16 l-32,-16 l0,-14 Z" fill="{PAL["dark_r"]}"/>')
-add(f'<path d="M-32,-4 l32,16 l0,14 l-32,-16 Z" fill="{PAL["stone_l"]}"/>')
-add(f'<path d="M32,-4 l-32,16 l0,14 l32,-16 Z" fill="{PAL["dark_l"]}"/>')
-add(f'<path d="M0,-4 l32,16 l-32,16 l-32,-16 Z" fill="{PAL["stone_t"]}"/>')
-add(f'<g class="bob"><path d="M0,-30 l17,9 l0,13 l-17,9 l-17,-9 l0,-13 Z" fill="{PAL["cyan"]}"/>'
-    f'<path d="M0,-30 l17,9 l-17,9 l-17,-9 Z" fill="{PAL["cyan_wh"]}"/></g>')
-for wdx in (-17, 17):
-    add(f'<circle cx="{wdx}" cy="{28}" r="5" fill="{PAL["plank_r"]}"/>')
-add("</g></g>")
+# The spell itself: cards of code conjured at the wand tip that ride the rail
+# into the chest. Positioning is a static outer group so the CSS transform on
+# .pkt has nothing to fight with — a transform attribute would be overridden.
+WAND_TIP = (WIZ_X + 72, GY - 82)   # tip position with the wand raised
+CHEST_MOUTH = (872, 178)
+DX, DY = CHEST_MOUTH[0] - WAND_TIP[0], CHEST_MOUTH[1] - WAND_TIP[1]
+
+for i, (delay, dy0) in enumerate([(0.0, 0), (0.30, -7), (0.60, 6), (0.90, -3)]):
+    add(f'<g transform="translate({WAND_TIP[0]},{WAND_TIP[1]+dy0})">')
+    add(f'<g class="pkt" style="animation-delay:{delay}s">')
+    add('<g transform="translate(-15,-11)">')
+    add(f'<rect width="30" height="22" fill="#02060e" stroke="{PAL["cyan"]}" '
+        f'stroke-width="1.6" opacity=".96"/>')
+    for r, (w, c) in enumerate([(17, PAL["cyan_hi"]), (23, PAL["cyan"]), (13, PAL["gold"])]):
+        add(f'<rect x="4" y="{5 + r * 5}" width="{w}" height="2.6" fill="{c}"/>')
+    add("</g></g></g>")
 
 # =========================================================== RIGHT: the payoff
 CHEST_X = W * 0.70                              # 840 — right rule-of-thirds line
@@ -346,7 +396,7 @@ add(f'<ellipse cx="{KX}" cy="{KY-20}" rx="120" ry="92" fill="url(#chestGlow)"/>'
 GEM_X, GEM_Y = W * 0.70, H * 0.30               # focal point
 # light shaft ties the diamond to the chest so neither floats
 add(f'<path d="M{KX-34},{KY-24} L{KX+34},{KY-24} L{GEM_X+62},{GEM_Y+22} L{GEM_X-62},{GEM_Y+22} Z" '
-    f'fill="url(#beam)" class="pulse"/>')
+    f'fill="url(#beam)" class="payoff"/>')
 
 # chest: isometric box, open lid hinged back, loot spilling
 add(f'<path d="M{KX-40},{KY-18} l40,20 l40,-20 l0,30 l-40,20 l-40,-20 Z" fill="{PAL["gold_dk"]}"/>')
@@ -358,9 +408,9 @@ for dx, dy, c in [(-16, -6, PAL["gold_hi"]), (-2, -12, PAL["cyan_hi"]), (14, -7,
     add(f'<rect class="pulse" x="{KX+dx}" y="{KY-14+dy}" width="8" height="8" fill="{c}" '
         f'style="animation-delay:{abs(dx)*.05:.2f}s"/>')
 # lid, tilted open behind the box
-add(f'<g transform="translate({KX},{KY-30}) rotate(-24)">'
+add(f'<g transform="translate({KX},{KY-30})"><g class="lid">'
     f'<path d="M-38,0 l38,19 l38,-19 l0,-9 l-38,-19 l-38,19 Z" fill="{PAL["gold"]}"/>'
-    f'<path d="M-38,0 l38,19 l0,-9 l-38,-19 Z" fill="{PAL["gold_hi"]}"/></g>')
+    f'<path d="M-38,0 l38,19 l0,-9 l-38,-19 Z" fill="{PAL["gold_hi"]}"/></g></g>')
 
 # the diamond
 add(f'<ellipse cx="{GEM_X}" cy="{GEM_Y}" rx="86" ry="78" fill="url(#gemGlow)"/>')

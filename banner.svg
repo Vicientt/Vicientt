@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" role="img" aria-label="Isometric pixel scene: a wizard codes at a lit bench on the left, a minecart carries a glowing data crate along a rail across the middle, and on the right an open chest sends a shaft of light up to a floating diamond">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" role="img" aria-label="Isometric pixel scene: a wizard codes at a lit bench on the left, raises a wand to conjure cards of code that fly along a rail across the middle, and on the right an open chest sends a shaft of light up to a floating diamond">
 <defs>
   <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0%"   stop-color="#0a1730"/>
@@ -27,19 +27,66 @@
     <stop offset="0%" stop-color="#02060e" stop-opacity="0"/>
     <stop offset="100%" stop-color="#02060e" stop-opacity=".85"/></linearGradient>
   <style>
-    .bob   { animation: bob 3.4s ease-in-out infinite; }
-    .flick { animation: flick 1.4s steps(3) infinite; }
-    .pulse { animation: pulse 3.2s ease-in-out infinite; }
-    .spark { animation: spark 3s ease-in-out infinite; }
-    .cart  { animation: ride 11s ease-in-out infinite; }
-    .scan  { animation: scan 2.4s linear infinite; }
-    @keyframes bob   { 0%,100%{transform:translateY(0)}    50%{transform:translateY(-8px)} }
-    @keyframes flick { 0%,100%{opacity:.82}                50%{opacity:1} }
-    @keyframes pulse { 0%,100%{opacity:.5}                 50%{opacity:1} }
-    @keyframes spark { 0%,100%{opacity:0}                  50%{opacity:1} }
-    @keyframes scan  { 0%{transform:translateY(-16px)}     100%{transform:translateY(16px)} }
-    @keyframes ride  { 0%,4%{transform:translate(0,0)}     46%,54%{transform:translate(418px,0)}
-                       96%,100%{transform:translate(0,0)} }
+    /* One 10s spell, read left to right:
+       0.0-0.8s  afterglow from the last cast, chest still open
+       0.8-1.3s  lid drops shut, the scene resets
+       1.4-2.8s  wizard raises the wand, the focus stone flares
+       2.6-6.3s  cards of code fly the rail into the chest (staggered)
+       6.0-6.6s  lid bursts open, loot and beam come up to full
+       6.6-10s   held open, then the loop repeats                        */
+    .bob    { animation: bob 3.4s ease-in-out infinite; }
+    .flick  { animation: flick 1.4s steps(3) infinite; }
+    .pulse  { animation: pulse 3.2s ease-in-out infinite; }
+    .spark  { animation: spark 3s ease-in-out infinite; }
+    .scan   { animation: scan 2.4s linear infinite; }
+
+    .wand   { animation: wand 10s ease-in-out infinite; }
+    .runes  { animation: runes 10s ease-in-out infinite; }
+    /* backwards fill matters: during animation-delay an element falls back to
+       its own style, so a staggered packet would sit visible at the wand tip
+       until its turn came round. */
+    .pkt    { transform-origin: 0 0;
+              animation: pkt 10s cubic-bezier(.35,0,.5,1) infinite backwards; }
+    .lid    { transform-origin: -38px 0;
+              animation: lid 10s cubic-bezier(.34,1.4,.5,1) infinite; }
+    .payoff { animation: payoff 10s ease-in-out infinite; }
+
+    @keyframes bob   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    @keyframes flick { 0%,100%{opacity:.82}             50%{opacity:1} }
+    @keyframes pulse { 0%,100%{opacity:.5}              50%{opacity:1} }
+    @keyframes spark { 0%,100%{opacity:0}               50%{opacity:1} }
+    @keyframes scan  { 0%{transform:translateY(-16px)}  100%{transform:translateY(16px)} }
+
+    /* the gesture */
+    @keyframes wand {
+      0%, 14%   { transform: rotate(0deg); }
+      20%, 28%  { transform: rotate(24deg); }
+      36%, 100% { transform: rotate(0deg); }
+    }
+    @keyframes runes {
+      0%, 15%   { opacity: .45; }
+      20%, 30%  { opacity: 1; }
+      38%, 100% { opacity: .45; }
+    }
+    /* the code, arcing along the rail */
+    @keyframes pkt {
+      0%, 22%   { opacity: 0; transform: translate(0,0) scale(.45); }
+      26%       { opacity: 1; transform: translate(0,0) scale(1); }
+      40%       { opacity: 1; transform: translate(285px,-14px) scale(.95); }
+      54%       { opacity: 1; transform: translate(550px,28px) scale(.8); }
+      59%, 100% { opacity: 0; transform: translate(550px,28px) scale(.35); }
+    }
+    /* the payoff — starts open so the still frame shows the reward */
+    @keyframes lid {
+      0%, 8%    { transform: rotate(-26deg); }
+      13%, 60%  { transform: rotate(0deg); }
+      66%, 100% { transform: rotate(-26deg); }
+    }
+    @keyframes payoff {
+      0%, 8%    { opacity: 1; }
+      14%, 60%  { opacity: .25; }
+      66%, 100% { opacity: 1; }
+    }
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
   </style>
 </defs>
@@ -522,8 +569,10 @@
 <rect x="212.2" y="232.6" width="16.2" height="5.4" fill="#4a2f16"/>
 <rect x="255.4" y="232.6" width="16.2" height="5.4" fill="#4a2f16"/>
 <rect x="206.8" y="157.0" width="86.4" height="5.4" fill="#5b9bea"/>
+<g class="wand" style="transform-origin:288.5px 234.0px">
 <rect x="286" y="144.0" width="5" height="90" fill="#4a2f16"/>
-<g class="pulse"><rect x="280" y="128.0" width="17" height="17" fill="#43c9ff"/><rect x="284" y="132.0" width="9" height="9" fill="#eafcff"/></g>
+<g class="runes"><rect x="280" y="128.0" width="17" height="17" fill="#43c9ff"/><rect x="284" y="132.0" width="9" height="9" fill="#eafcff"/></g>
+</g>
 </g>
 <rect x="213" y="74.0" width="6" height="52" fill="#4a2f16"/>
 <rect x="132" y="18.0" width="168" height="58" fill="#6d4621" stroke="#4a2f16" stroke-width="4"/>
@@ -544,17 +593,38 @@
 <rect class="pulse" x="624" y="260.0" width="6" height="6" fill="#43c9ff" style="animation-delay:0.0s"/>
 <rect class="pulse" x="640" y="254.0" width="6" height="6" fill="#43c9ff" style="animation-delay:0.0s"/>
 <rect class="pulse" x="634" y="268.0" width="6" height="6" fill="#43c9ff" style="animation-delay:0.0s"/>
-<g class="cart">
-<g transform="translate(392,277.0)">
-<ellipse cx="0" cy="16" rx="30" ry="12.6" fill="#02060c" opacity="0.42"/>
-<path d="M0,-4 l32,16 l0,14 l-32,16 l-32,-16 l0,-14 Z" fill="#0e2240"/>
-<path d="M-32,-4 l32,16 l0,14 l-32,-16 Z" fill="#1c4472"/>
-<path d="M32,-4 l-32,16 l0,14 l32,-16 Z" fill="#152f52"/>
-<path d="M0,-4 l32,16 l-32,16 l-32,-16 Z" fill="#2c5182"/>
-<g class="bob"><path d="M0,-30 l17,9 l0,13 l-17,9 l-17,-9 l0,-13 Z" fill="#43c9ff"/><path d="M0,-30 l17,9 l-17,9 l-17,-9 Z" fill="#eafcff"/></g>
-<circle cx="-17" cy="28" r="5" fill="#4a2f16"/>
-<circle cx="17" cy="28" r="5" fill="#4a2f16"/>
-</g></g>
+<g transform="translate(322,150.0)">
+<g class="pkt" style="animation-delay:0.0s">
+<g transform="translate(-15,-11)">
+<rect width="30" height="22" fill="#02060e" stroke="#43c9ff" stroke-width="1.6" opacity=".96"/>
+<rect x="4" y="5" width="17" height="2.6" fill="#a9e8ff"/>
+<rect x="4" y="10" width="23" height="2.6" fill="#43c9ff"/>
+<rect x="4" y="15" width="13" height="2.6" fill="#f6b23a"/>
+</g></g></g>
+<g transform="translate(322,143.0)">
+<g class="pkt" style="animation-delay:0.3s">
+<g transform="translate(-15,-11)">
+<rect width="30" height="22" fill="#02060e" stroke="#43c9ff" stroke-width="1.6" opacity=".96"/>
+<rect x="4" y="5" width="17" height="2.6" fill="#a9e8ff"/>
+<rect x="4" y="10" width="23" height="2.6" fill="#43c9ff"/>
+<rect x="4" y="15" width="13" height="2.6" fill="#f6b23a"/>
+</g></g></g>
+<g transform="translate(322,156.0)">
+<g class="pkt" style="animation-delay:0.6s">
+<g transform="translate(-15,-11)">
+<rect width="30" height="22" fill="#02060e" stroke="#43c9ff" stroke-width="1.6" opacity=".96"/>
+<rect x="4" y="5" width="17" height="2.6" fill="#a9e8ff"/>
+<rect x="4" y="10" width="23" height="2.6" fill="#43c9ff"/>
+<rect x="4" y="15" width="13" height="2.6" fill="#f6b23a"/>
+</g></g></g>
+<g transform="translate(322,147.0)">
+<g class="pkt" style="animation-delay:0.9s">
+<g transform="translate(-15,-11)">
+<rect width="30" height="22" fill="#02060e" stroke="#43c9ff" stroke-width="1.6" opacity=".96"/>
+<rect x="4" y="5" width="17" height="2.6" fill="#a9e8ff"/>
+<rect x="4" y="10" width="23" height="2.6" fill="#43c9ff"/>
+<rect x="4" y="15" width="13" height="2.6" fill="#f6b23a"/>
+</g></g></g>
 <path d="M872,232.0 l34,17.0 l-34,17.0 l-34,-17.0 Z" fill="#2c5182"/>
 <path d="M838,249.0 l34,17.0 l0,34 l-34,-17.0 Z" fill="#1c4472"/>
 <path d="M906,249.0 l-34,17.0 l0,34 l34,-17.0 Z" fill="#12325a"/>
@@ -568,7 +638,7 @@
 <path d="M838,215.0 l34,17.0 l0,34 l-34,-17.0 Z" fill="#1c4472"/>
 <path d="M906,215.0 l-34,17.0 l0,34 l34,-17.0 Z" fill="#12325a"/>
 <ellipse cx="872" cy="178.0" rx="120" ry="92" fill="url(#chestGlow)"/>
-<path d="M838,174.0 L906,174.0 L902.0,142.0 L778.0,142.0 Z" fill="url(#beam)" class="pulse"/>
+<path d="M838,174.0 L906,174.0 L902.0,142.0 L778.0,142.0 Z" fill="url(#beam)" class="payoff"/>
 <path d="M832,180.0 l40,20 l40,-20 l0,30 l-40,20 l-40,-20 Z" fill="#a86f1a"/>
 <path d="M832,180.0 l40,20 l0,30 l-40,-20 Z" fill="#f6b23a"/>
 <path d="M912,180.0 l-40,20 l0,30 l40,-20 Z" fill="#a86f1a"/>
@@ -578,7 +648,7 @@
 <rect class="pulse" x="886" y="177.0" width="8" height="8" fill="#ffcb5b" style="animation-delay:0.70s"/>
 <rect class="pulse" x="864" y="182.0" width="8" height="8" fill="#f6b23a" style="animation-delay:0.40s"/>
 <rect class="pulse" x="879" y="181.0" width="8" height="8" fill="#f6b23a" style="animation-delay:0.35s"/>
-<g transform="translate(872,168.0) rotate(-24)"><path d="M-38,0 l38,19 l38,-19 l0,-9 l-38,-19 l-38,19 Z" fill="#f6b23a"/><path d="M-38,0 l38,19 l0,-9 l-38,-19 Z" fill="#ffcb5b"/></g>
+<g transform="translate(872,168.0)"><g class="lid"><path d="M-38,0 l38,19 l38,-19 l0,-9 l-38,-19 l-38,19 Z" fill="#f6b23a"/><path d="M-38,0 l38,19 l0,-9 l-38,-19 Z" fill="#ffcb5b"/></g></g>
 <ellipse cx="840.0" cy="120.0" rx="86" ry="78" fill="url(#gemGlow)"/>
 <g class="bob">
 <path d="M840.0,82.0 l28,28 l-28,42 l-28,-42 Z" fill="#43c9ff"/>
