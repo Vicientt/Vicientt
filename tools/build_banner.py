@@ -17,6 +17,7 @@ Composition follows three rules, in this order of priority:
 Run:  python3 tools/build_banner.py   (writes banner.svg next to README.md)
 """
 
+import random
 from pathlib import Path
 
 import pixelfont as pf
@@ -98,10 +99,14 @@ add(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" 
 
 add("""<defs>
   <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%"   stop-color="#0a1730"/>
-    <stop offset="48%"  stop-color="#050d1c"/>
-    <stop offset="100%" stop-color="#02060e"/>
+    <stop offset="0%"   stop-color="#050a1d"/>
+    <stop offset="42%"  stop-color="#030713"/>
+    <stop offset="100%" stop-color="#01030a"/>
   </linearGradient>
+  <radialGradient id="nebA"><stop offset="0%" stop-color="#2b5bd0" stop-opacity=".22"/>
+    <stop offset="100%" stop-color="#2b5bd0" stop-opacity="0"/></radialGradient>
+  <radialGradient id="nebB"><stop offset="0%" stop-color="#7a3fd0" stop-opacity=".18"/>
+    <stop offset="100%" stop-color="#7a3fd0" stop-opacity="0"/></radialGradient>
   <radialGradient id="chestGlow"><stop offset="0%" stop-color="#f6b23a" stop-opacity=".5"/>
     <stop offset="55%" stop-color="#f6b23a" stop-opacity=".12"/>
     <stop offset="100%" stop-color="#f6b23a" stop-opacity="0"/></radialGradient>
@@ -124,65 +129,81 @@ add("""<defs>
     <stop offset="0%" stop-color="#02060e" stop-opacity="0"/>
     <stop offset="100%" stop-color="#02060e" stop-opacity=".85"/></linearGradient>
   <style>
-    /* One 10s spell, read left to right:
-       0.0-0.8s  afterglow from the last cast, chest still open
-       0.8-1.3s  lid drops shut, the scene resets
-       1.4-2.8s  wizard raises the wand, the focus stone flares
-       2.6-6.3s  cards of code fly the rail into the chest (staggered)
-       6.0-6.6s  lid bursts open, loot and beam come up to full
-       6.6-10s   held open, then the loop repeats                        */
-    .bob    { animation: bob 3.4s ease-in-out infinite; }
-    .flick  { animation: flick 1.4s steps(3) infinite; }
-    .pulse  { animation: pulse 3.2s ease-in-out infinite; }
-    .spark  { animation: spark 3s ease-in-out infinite; }
-    .scan   { animation: scan 2.4s linear infinite; }
+    /* One 6s spell, read left to right:
+       0.00-0.42s  afterglow, chest open, diamond out
+       0.42-0.72s  lid shuts, the diamond drops back inside
+       0.84-1.80s  wizard raises the wand, focus stone flares
+       1.68-3.36s  four cards of code fly the rail, 0.12s apart
+       3.42-3.78s  lid springs open
+       3.84-4.20s  diamond rises to the focal point and holds        */
+    .bob     { animation: bob 2.8s ease-in-out infinite; }
+    .flick   { animation: flick 1.2s steps(3) infinite; }
+    .pulse   { animation: pulse 2.6s ease-in-out infinite; }
+    .spark   { animation: spark 2.4s ease-in-out infinite; }
+    .scan    { animation: scan 2s linear infinite; }
+    .twinkle { animation: twinkle 3s ease-in-out infinite; }
 
-    .wand   { animation: wand 10s ease-in-out infinite; }
-    .runes  { animation: runes 10s ease-in-out infinite; }
+    .wand    { animation: wand 6s ease-in-out infinite; }
+    .runes   { animation: runes 6s ease-in-out infinite; }
     /* backwards fill matters: during animation-delay an element falls back to
        its own style, so a staggered packet would sit visible at the wand tip
        until its turn came round. */
-    .pkt    { transform-origin: 0 0;
-              animation: pkt 10s cubic-bezier(.35,0,.5,1) infinite backwards; }
-    .lid    { transform-origin: -38px 0;
-              animation: lid 10s cubic-bezier(.34,1.4,.5,1) infinite; }
-    .payoff { animation: payoff 10s ease-in-out infinite; }
+    .pkt     { transform-origin: 0 0;
+               animation: pkt 6s cubic-bezier(.35,0,.5,1) infinite backwards; }
+    .lid     { transform-origin: -38px 0;
+               animation: lid 6s cubic-bezier(.34,1.5,.5,1) infinite; }
+    .reveal-fade { animation: revealFade 6s ease-in-out infinite; }
+    .reveal-rise { animation: revealRise 6s cubic-bezier(.2,1.5,.4,1) infinite; }
+    .payoff  { animation: payoff 6s ease-in-out infinite; }
 
-    @keyframes bob   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-    @keyframes flick { 0%,100%{opacity:.82}             50%{opacity:1} }
-    @keyframes pulse { 0%,100%{opacity:.5}              50%{opacity:1} }
-    @keyframes spark { 0%,100%{opacity:0}               50%{opacity:1} }
-    @keyframes scan  { 0%{transform:translateY(-16px)}  100%{transform:translateY(16px)} }
+    @keyframes bob     { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    @keyframes flick   { 0%,100%{opacity:.82}             50%{opacity:1} }
+    @keyframes pulse   { 0%,100%{opacity:.5}              50%{opacity:1} }
+    @keyframes spark   { 0%,100%{opacity:0}               50%{opacity:1} }
+    @keyframes scan    { 0%{transform:translateY(-16px)}  100%{transform:translateY(16px)} }
+    @keyframes twinkle { 0%,100%{opacity:.18} 45%{opacity:1} 70%{opacity:.42} }
 
     /* the gesture */
     @keyframes wand {
       0%, 14%   { transform: rotate(0deg); }
-      20%, 28%  { transform: rotate(24deg); }
-      36%, 100% { transform: rotate(0deg); }
+      20%, 30%  { transform: rotate(24deg); }
+      38%, 100% { transform: rotate(0deg); }
     }
     @keyframes runes {
-      0%, 15%   { opacity: .45; }
-      20%, 30%  { opacity: 1; }
-      38%, 100% { opacity: .45; }
+      0%, 16%   { opacity: .45; }
+      21%, 32%  { opacity: 1; }
+      40%, 100% { opacity: .45; }
     }
     /* the code, arcing along the rail */
     @keyframes pkt {
-      0%, 22%   { opacity: 0; transform: translate(0,0) scale(.45); }
-      26%       { opacity: 1; transform: translate(0,0) scale(1); }
-      40%       { opacity: 1; transform: translate(285px,-14px) scale(.95); }
-      54%       { opacity: 1; transform: translate(550px,28px) scale(.8); }
-      59%, 100% { opacity: 0; transform: translate(550px,28px) scale(.35); }
+      0%, 24%   { opacity: 0; transform: translate(0,0) scale(.45); }
+      28%       { opacity: 1; transform: translate(0,0) scale(1); }
+      42%       { opacity: 1; transform: translate(285px,-14px) scale(.95); }
+      56%       { opacity: 1; transform: translate(550px,28px) scale(.8); }
+      61%, 100% { opacity: 0; transform: translate(550px,28px) scale(.35); }
     }
-    /* the payoff — starts open so the still frame shows the reward */
+    /* the payoff — resting state is the finished one, so a still frame reads
+       as the reward rather than a half-played cycle */
     @keyframes lid {
-      0%, 8%    { transform: rotate(-26deg); }
-      13%, 60%  { transform: rotate(0deg); }
-      66%, 100% { transform: rotate(-26deg); }
+      0%, 7%    { transform: rotate(-26deg); }
+      12%, 57%  { transform: rotate(0deg); }
+      63%, 100% { transform: rotate(-26deg); }
+    }
+    @keyframes revealFade {
+      0%, 6%    { opacity: 1; }
+      11%, 57%  { opacity: 0; }
+      63%, 100% { opacity: 1; }
+    }
+    @keyframes revealRise {
+      0%, 6%    { transform: translate(0,0) scale(1); }
+      11%, 57%  { transform: translate(32px,72px) scale(.25); }
+      64%       { transform: translate(0,-8px) scale(1.14); }
+      70%, 100% { transform: translate(0,0) scale(1); }
     }
     @keyframes payoff {
-      0%, 8%    { opacity: 1; }
-      14%, 60%  { opacity: .25; }
-      66%, 100% { opacity: 1; }
+      0%, 7%    { opacity: 1; }
+      13%, 57%  { opacity: .25; }
+      63%, 100% { opacity: 1; }
     }
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
   </style>
@@ -190,34 +211,40 @@ add("""<defs>
 
 add(f'<rect width="{W}" height="{H}" fill="url(#sky)"/>')
 
-# ------------------------------------------------------- background: cavern
-# A single jagged rock ceiling reads as one mass; loose rectangles read as
-# debris and were the main reason the old banner felt scattered.
-ceil = "M0,0 L{},0 L{},58".format(W, W)
-for cx0, cy0 in [(1120, 92), (1040, 46), (952, 78), (860, 38), (760, 84),
-                 (668, 44), (566, 90), (470, 40), (372, 72), (268, 34),
-                 (170, 80), (78, 42), (0, 66)]:
-    ceil += f" L{cx0},{cy0}"
-ceil += " L0,0 Z"
-add(f'<path d="{ceil}" fill="{PAL["wall"]}"/>')
-add(f'<path d="{ceil}" fill="none" stroke="#153059" stroke-width="3" opacity=".8"/>')
+# ----------------------------------------------------- background: the void
+# The island now hangs in open space. A cave ceiling framed the scene but
+# fought the story — the reward is dug out of the dark, so the dark should be
+# endless rather than a roof three metres up.
 
-add('<g opacity=".85">')
-for sx, sw, sh in [(118, 20, 62), (262, 14, 40), (392, 12, 34), (508, 22, 74),
-                   (652, 14, 38), (784, 18, 52), (918, 14, 36), (1064, 20, 58)]:
-    add(f'<path d="M{sx},{max(0,0)} l{sw},0 l{-sw/2},{sh} Z" fill="{PAL["dark_r"]}"/>')
-add("</g>")
+# two nebulae, off the thirds, to keep the emptiness from reading as flat black
+add(f'<ellipse cx="{W*0.22:.0f}" cy="{H*0.30:.0f}" rx="300" ry="150" fill="url(#nebA)"/>')
+add(f'<ellipse cx="{W*0.78:.0f}" cy="{H*0.22:.0f}" rx="340" ry="170" fill="url(#nebB)"/>')
 
-# distant arches, receding — depth without clutter
-for ax, aw, ah, op in [(180, 104, 84, .16), (600, 128, 100, .14), (1010, 100, 80, .16)]:
-    add(f'<g opacity="{op}"><rect x="{ax-aw/2}" y="{230-ah}" width="14" height="{ah}" fill="{PAL["dark_l"]}"/>'
-        f'<rect x="{ax+aw/2-14}" y="{230-ah}" width="14" height="{ah}" fill="{PAL["dark_l"]}"/>'
-        f'<rect x="{ax-aw/2}" y="{230-ah-14}" width="{aw}" height="16" fill="{PAL["dark_t"]}"/></g>')
+# Starfield. Seeded so the layout is identical on every rebuild — an unseeded
+# shuffle would churn the diff on every run.
+rng = random.Random(20260802)
+STAR_TINT = [PAL["ink"], PAL["cyan_hi"], PAL["cyan_wh"], PAL["gold_hi"], PAL["ink"]]
+for i in range(150):
+    sx = rng.uniform(-10, W + 10)
+    sy = rng.uniform(-6, H * 0.82)
+    # thin out the stars where the scene needs to read clearly
+    if 150 < sy < 320 and 180 < sx < 960 and rng.random() < 0.72:
+        continue
+    size = rng.choice([1, 1, 1, 2, 2, 2, 3, 3, 4])
+    tint = rng.choice(STAR_TINT)
+    base = rng.uniform(0.30, 0.85)
+    dur = rng.uniform(1.8, 4.6)
+    delay = rng.uniform(0, 4.6)
+    add(f'<rect class="twinkle" x="{sx:.0f}" y="{sy:.0f}" width="{size}" height="{size}" '
+        f'fill="{tint}" opacity="{base:.2f}" '
+        f'style="animation-duration:{dur:.1f}s;animation-delay:{delay:.1f}s"/>')
 
-for x, y, r, d in [(150, 128, 1.7, .0), (420, 96, 1.4, .6), (700, 74, 1.9, 1.2),
-                   (980, 112, 1.5, .3), (1105, 82, 1.6, .9), (300, 62, 1.3, 1.5)]:
-    add(f'<circle class="spark" cx="{x}" cy="{y}" r="{r}" fill="{PAL["cyan_hi"]}" '
-        f'style="animation-delay:{d}s"/>')
+# a handful of brighter four-point stars for punctuation
+for bx, by, r in [(126, 58, 5), (352, 96, 4), (742, 46, 6), (1046, 88, 5), (612, 132, 4)]:
+    add(f'<g class="twinkle" style="animation-duration:3.4s;animation-delay:{bx % 5 * .6:.1f}s">'
+        f'<path d="M{bx},{by-r*2} L{bx+r*0.5},{by-r*0.5} L{bx+r*2},{by} L{bx+r*0.5},{by+r*0.5} '
+        f'L{bx},{by+r*2} L{bx-r*0.5},{by+r*0.5} L{bx-r*2},{by} L{bx-r*0.5},{by-r*0.5} Z" '
+        f'fill="{PAL["cyan_wh"]}"/></g>')
 
 # ------------------------------------------------------------- floor ribbon
 # Top faces only, so the surface reads flat. Side faces belong to the front
@@ -346,14 +373,6 @@ pixel_text("HENRY", sgx, GY - 200, 4.4, PAL["gold_hi"], 1, "middle")
 pixel_text("MATH & CS", sgx, GY - 172, 2.0, PAL["ink"], .85, "middle")
 
 # ==================================================== MIDDLE: the throughline
-# support arches receding behind the rail, to add depth without clutter
-for ax in (470, 700):
-    gxa, gya = at(ax, V0)
-    xa, ya = iso(gxa, gya, 1)
-    add(f'<g opacity=".5"><rect x="{xa-46}" y="{ya-96}" width="10" height="96" fill="{PAL["dark_l"]}"/>'
-        f'<rect x="{xa+36}" y="{ya-96}" width="10" height="96" fill="{PAL["dark_l"]}"/>'
-        f'<rect x="{xa-46}" y="{ya-104}" width="92" height="12" fill="{PAL["dark_t"]}"/></g>')
-
 # ore blocks flanking the path
 for tx in (410, 640):
     gxo, gyo = at(tx, V1 - 1)
@@ -370,7 +389,7 @@ WAND_TIP = (WIZ_X + 72, GY - 82)   # tip position with the wand raised
 CHEST_MOUTH = (872, 178)
 DX, DY = CHEST_MOUTH[0] - WAND_TIP[0], CHEST_MOUTH[1] - WAND_TIP[1]
 
-for i, (delay, dy0) in enumerate([(0.0, 0), (0.30, -7), (0.60, 6), (0.90, -3)]):
+for i, (delay, dy0) in enumerate([(0.0, 0), (0.12, -7), (0.24, 6), (0.36, -3)]):
     add(f'<g transform="translate({WAND_TIP[0]},{WAND_TIP[1]+dy0})">')
     add(f'<g class="pkt" style="animation-delay:{delay}s">')
     add('<g transform="translate(-15,-11)">')
@@ -412,7 +431,11 @@ add(f'<g transform="translate({KX},{KY-30})"><g class="lid">'
     f'<path d="M-38,0 l38,19 l38,-19 l0,-9 l-38,-19 l-38,19 Z" fill="{PAL["gold"]}"/>'
     f'<path d="M-38,0 l38,19 l0,-9 l-38,-19 Z" fill="{PAL["gold_hi"]}"/></g></g>')
 
-# the diamond
+# The diamond is the reward, so it stays inside the chest until the lid is up,
+# then rises to the focal point. Glow and sparkles ride the same group or they
+# would hang in empty air while the gem is hidden.
+add('<g class="reveal-fade">')
+add(f'<g class="reveal-rise" style="transform-origin:{GEM_X}px {GEM_Y}px">')
 add(f'<ellipse cx="{GEM_X}" cy="{GEM_Y}" rx="86" ry="78" fill="url(#gemGlow)"/>')
 add('<g class="bob">')
 add(f'<path d="M{GEM_X},{GEM_Y-38} l28,28 l-28,42 l-28,-42 Z" fill="{PAL["cyan"]}"/>')
@@ -420,10 +443,11 @@ add(f'<path d="M{GEM_X},{GEM_Y-38} l28,28 l-28,12 Z" fill="{PAL["cyan_hi"]}"/>')
 add(f'<path d="M{GEM_X},{GEM_Y-38} l-28,28 l28,12 Z" fill="{PAL["cyan_wh"]}"/>')
 add(f'<path d="M{GEM_X-28},{GEM_Y-10} l28,12 l28,-12 l-28,42 Z" fill="{PAL["cyan"]}" opacity=".72"/>')
 add("</g>")
-for ddx, ddy, s, d in [(-52, -40, 6, .0), (48, -26, 5, .7), (-40, 32, 5, 1.4),
-                       (56, 22, 6, .4), (8, -62, 5, 1.1)]:
-    add(f'<rect class="spark" x="{GEM_X+ddx}" y="{GEM_Y+ddy}" width="{s}" height="{s}" '
+for ddx, ddy, sz, d in [(-52, -40, 6, .0), (48, -26, 5, .42), (-40, 32, 5, .84),
+                        (56, 22, 6, .24), (8, -62, 5, .66)]:
+    add(f'<rect class="spark" x="{GEM_X+ddx}" y="{GEM_Y+ddy}" width="{sz}" height="{sz}" '
         f'fill="{PAL["cyan_hi"]}" style="animation-delay:{d}s"/>')
+add("</g></g>")
 
 # clusters of crystal on the open floor, filling the dead space low and wide
 for tx, v, n in [(120, 5, 3), (540, 5, 4), (1030, 5, 3), (300, 6, 2), (760, 6, 3)]:
