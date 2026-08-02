@@ -157,13 +157,6 @@ Data Engineering               ████████████████�
 
 </div>
 
-### 🗡️ LeetCode SQL Progress <sub>(auto-updated daily)</sub>
-
-<div align="center">
-  <img src="./sql_progress.svg" width="48%" alt="LeetCode SQL progress by difficulty" />
-  <img src="./top_recent.svg" width="48%" alt="Most recently solved LeetCode SQL problems" />
-</div>
-
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="divider">
 
 ## 🧭 Connect
