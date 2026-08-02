@@ -19,6 +19,8 @@ Run:  python3 tools/build_banner.py   (writes banner.svg next to README.md)
 
 from pathlib import Path
 
+import pixelfont as pf
+
 W, H = 1200, 400
 U = 34                      # half-width of a tile; tiles are 2U wide, U tall (2:1)
 BH = 34                     # block height in screen pixels
@@ -66,44 +68,11 @@ def shadow(x, y, rx, o=.45):
     add(f'<ellipse cx="{x}" cy="{y}" rx="{rx}" ry="{rx*0.42}" fill="#02060c" opacity="{o}"/>')
 
 
-# 5x7 bitmap font, drawn as rects so the pixel look survives without a webfont.
-FONT = {
-    "H": ["10001","10001","10001","11111","10001","10001","10001"],
-    "E": ["11111","10000","10000","11110","10000","10000","11111"],
-    "N": ["10001","11001","10101","10011","10001","10001","10001"],
-    "R": ["11110","10001","10001","11110","10100","10010","10001"],
-    "Y": ["10001","10001","01010","00100","00100","00100","00100"],
-    "M": ["10001","11011","10101","10001","10001","10001","10001"],
-    "A": ["01110","10001","10001","11111","10001","10001","10001"],
-    "T": ["11111","00100","00100","00100","00100","00100","00100"],
-    "C": ["01110","10001","10000","10000","10000","10001","01110"],
-    "S": ["01111","10000","10000","01110","00001","00001","11110"],
-    "&": ["01100","10010","10010","01100","10101","10010","01101"],
-    " ": ["00000","00000","00000","00000","00000","00000","00000"],
-}
-
-
 def pixel_text(s, x, y, px, fill, opacity=1.0, anchor="start"):
-    w = len(s) * 6 * px
+    """Thin wrapper over the shared font so both generators stay in step."""
     if anchor == "middle":
-        x -= w / 2
-    add(f'<g fill="{fill}" opacity="{opacity}">')
-    cx = x
-    for ch in s.upper():
-        rows = FONT.get(ch)
-        if rows:
-            for r, row in enumerate(rows):
-                run = 0
-                for c in range(6):
-                    on = c < 5 and row[c] == "1"
-                    if on:
-                        run += 1
-                    elif run:
-                        add(f'<rect x="{cx+(c-run)*px:.1f}" y="{y+r*px:.1f}" '
-                            f'width="{run*px:.1f}" height="{px}"/>')
-                        run = 0
-        cx += 6 * px
-    add("</g>")
+        x -= pf.text_width(s, px) / 2
+    add(f'<g opacity="{opacity}">{pf.emit(s, x, y, px, fill=fill)}</g>')
 
 
 def sprite(grid, x, y, px, cols):
