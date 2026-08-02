@@ -1,15 +1,15 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/henryng15/henryng15/main/animation.gif" width="100%" alt="Henry Nguyen - Software Engineer and Data Scientist banner" />
+  <img src="https://raw.githubusercontent.com/henryng15/henryng15/main/animation.gif" width="100%" alt="Henry - Software Engineer and Data Scientist banner" />
 </div>
 
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Pixelify+Sans&weight=600&size=32&duration=2200&pause=700&color=F6B23A&center=true&vCenter=true&width=740&height=60&lines=Hi%2C+I'm+Henry+Nguyen+%E2%9B%8F;Software+Engineer+%C2%B7+Data+Scientist;Math+%26+CS+%40+Kenyon+College)](https://github.com/henryng15)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Pixelify+Sans&weight=600&size=32&duration=2200&pause=700&color=F6B23A&center=true&vCenter=true&width=740&height=60&lines=Hi%2C+I'm+Henry+%E2%9B%8F;Software+Engineer+%C2%B7+Data+Scientist;Math+%26+CS+%40+Kenyon+College)](https://github.com/henryng15)
 
-# Henry Nguyen (Hoan Nguyen)
+# Henry
 
 **Software Engineer · Data Scientist · Machine Learning**<br>
-Mathematics & Computer Science @ Kenyon College · GPA 4.0 · Class of 2028
+Mathematics & Computer Science @ Kenyon College
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-hoanng15-43C9FF?style=for-the-badge&logo=linkedin&logoColor=0A1A30&labelColor=0A1A30)](https://www.linkedin.com/in/hoanng15/)
 [![Email](https://img.shields.io/badge/Email-hoanng15.work@gmail.com-E6F0FB?style=for-the-badge&logo=gmail&logoColor=0A1A30&labelColor=0A1A30)](mailto:hoanng15.work@gmail.com)
@@ -27,7 +27,7 @@ Mathematics & Computer Science @ Kenyon College · GPA 4.0 · Class of 2028
 
 Math & CS student at Kenyon College building data science and software systems - from ML pipelines and LLM/RAG tooling to production full-stack apps.
 
-**Education:** Kenyon College, B.A. Mathematics & Computer Science, GPA 4.0, expected 2028<br>
+**Education:** Kenyon College, B.A. Mathematics & Computer Science<br>
 **Fellowships:** [SEO Tech Developer](https://www.seo-usa.org/) · [Break Through Tech AI](https://www.breakthroughtech.org/) · [Out for Undergrad](https://www.outforundergrad.org/)
 
 ## ⛏️ Tech Stack
@@ -38,18 +38,48 @@ Math & CS student at Kenyon College building data science and software systems -
 **Data & Infra:** PostgreSQL · MongoDB · DuckDB · Supabase · Snowflake · dbt · Polars · Docker · AWS · Azure · GitHub Actions
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
-  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
-  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
-  <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Django REST" />
-  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
-  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-  <img src="https://img.shields.io/badge/DuckDB-FFF000?style=for-the-badge&logo=duckdb&logoColor=black" alt="DuckDB" />
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
-  <img src="https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonwebservices&logoColor=white" alt="AWS" />
-  <img src="https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" alt="Microsoft Azure" />
+  <img src="https://img.shields.io/badge/-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
+  <img src="https://img.shields.io/badge/-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++" />
+  <img src="https://img.shields.io/badge/-276DC3?style=for-the-badge&logo=r&logoColor=white" alt="R" />
+  <img src="https://img.shields.io/badge/-363636?style=for-the-badge&logo=solidity&logoColor=white" alt="Solidity" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
+  <img src="https://img.shields.io/badge/-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Django REST" />
+  <img src="https://img.shields.io/badge/-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" />
+  <img src="https://img.shields.io/badge/-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch" />
+  <img src="https://img.shields.io/badge/-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white" alt="scikit-learn" />
+  <img src="https://img.shields.io/badge/-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain" />
+  <img src="https://img.shields.io/badge/-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI API" />
+  <img src="https://img.shields.io/badge/-000000?style=for-the-badge&logo=ollama&logoColor=white" alt="Ollama" />
+  <img src="https://img.shields.io/badge/-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="pandas" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+  <img src="https://img.shields.io/badge/-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+  <img src="https://img.shields.io/badge/-FFF000?style=for-the-badge&logo=duckdb&logoColor=black" alt="DuckDB" />
+  <img src="https://img.shields.io/badge/-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase" />
+  <img src="https://img.shields.io/badge/-29B5E8?style=for-the-badge&logo=snowflake&logoColor=white" alt="Snowflake" />
+  <img src="https://img.shields.io/badge/-FF694B?style=for-the-badge&logo=dbt&logoColor=white" alt="dbt" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+  <img src="https://img.shields.io/badge/-FF9900?style=for-the-badge&logo=amazonwebservices&logoColor=white" alt="AWS" />
+  <img src="https://img.shields.io/badge/-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" alt="Microsoft Azure" />
+  <img src="https://img.shields.io/badge/-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions" />
+  <img src="https://img.shields.io/badge/-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
 </p>
 
 ## 🏰 Experience
@@ -69,7 +99,6 @@ Math & CS student at Kenyon College building data science and software systems -
 | **[MenuLens](https://github.com/henryng15/MenuLens)** | Ranks restaurant dishes against calorie, budget, and protein constraints | Next.js · TypeScript · FastAPI · Supabase · OpenAI Vision |
 | **[TigerCook](https://github.com/henryng15/tigercook)** | AI recipe generator for college students, 5 constraints in and a structured recipe out | React · Firebase · OpenAI · AWS Amplify |
 | **[Hillstrom A/B & Uplift](https://github.com/henryng15/AB_Email_Testing)** | Uplift modeling with Qini curves and incremental ROI to build profit-maximizing targeting policies | Python · scikit-learn · causal inference |
-| **[EvalOps Assistant](https://github.com/henryng15/evalops-metric-assistant)** | Turns plain-language AI feedback into structured evaluation plans. Capstone with the Laboratory for Analytic Sciences | Flask · Claude API · Python |
 
 ## 🌱 Contributions
 
@@ -88,8 +117,7 @@ Math & CS student at Kenyon College building data science and software systems -
 {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Henry Nguyen",
-  "alternateName": "Hoan Nguyen",
+  "name": "Henry",
   "jobTitle": ["Software Engineer", "Data Scientist"],
   "email": "hoanng15.work@gmail.com",
   "sameAs": [
@@ -105,7 +133,7 @@ Math & CS student at Kenyon College building data science and software systems -
   "alumniOf": {
     "@type": "CollegeOrUniversity",
     "name": "Kenyon College",
-    "description": "B.A. Mathematics & Computer Science, GPA 4.0, expected 2028"
+    "description": "B.A. Mathematics & Computer Science"
   },
   "knowsAbout": [
     "Python", "Java", "TypeScript", "JavaScript", "SQL", "C", "C++", "R", "Solidity",
